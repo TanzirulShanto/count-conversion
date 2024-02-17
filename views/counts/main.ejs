@@ -8,17 +8,19 @@
 
     <title>Conversion</title>
   </head>
-  <body>
+  <body style="background-color: rgb(146, 214, 177);">
 
     <%- include ('../layout/header') %>
 
     <main style="min-height: 40pc;">
         <div class="container">
-            <h4 class="text-center">Convert Count to All the Possible Sytem</h4>
+            <div class="container p-2">
+              <h5 class="text-center">Convert Count</h5>
+            </div>
             <form action="/convert" method="POST">
                 <div class="mb-3">
                   <label for="count" class="form-label">Count</label>
-                  <input type="number" step="0.001" class="form-control" id="count" name="count">
+                  <input type="number" step="0.00001" class="form-control" id="count" name="count">
                 </div>
                 <div class="mb-3">
                     <label for="selectLevelTerm" class="form-label">Select Count System</label>
@@ -35,7 +37,7 @@
                     </select>
                 </div>
                   
-                <button type="submit" class="btn btn-light btn-outline-warning">Convert</button>
+                <button type="submit" class="btn btn-light btn-outline-success">Convert</button>
                   
               </form>
         </div>
@@ -66,11 +68,15 @@
                 </tbody>
               </table>
 
-        <div class="container">
-            
-        </div>
         </div>
         <% } %>
+
+        <% if (isCountZero) { %>
+          <div class="container warning">
+            <p class="text-center p-3 text-danger">Note: Count can't be 0 or empty</p>
+          </div>
+        <% } %>
+
     </main>
     
 
