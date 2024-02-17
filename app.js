@@ -3,6 +3,9 @@ const app = express();
 const ejs = require('ejs');
 
 
+const {texToAll, denToAll, neToAll, newToAll, nesToAll, nelToAll, lbpsToAll, nmToAll} = require('./controllers/functions/count');
+
+
 
 app.set("view engine", "ejs");
 
@@ -12,29 +15,7 @@ app.use(express.json());
 
 
 
-function texToAll(tex) {
-    const den = tex*9;
-    const ne = tex*590.5;
-    const new_ = tex*885.8;
-    const nes = tex*0;
-    const lbps = tex*34.45;
-    const mic = tex*0;
-    const nel = tex*1653;
-    const nm = tex*1000;
 
-    const obj = {
-        "Denier": den,
-        "English Count": ne,
-        "Worsted Count": new_,
-        "Woollen Count": nes,
-        "Jute Count": lbps,
-        "Micronaire": mic,
-        "Linen Count": nel,
-        "Metric Count": nm
-    }
-    return obj;
-
-}
 
 
 
@@ -53,9 +34,35 @@ app.post('/convert', (req, res)=>{
 
     switch (system) {
         case "tex":
-            res.render('counts/main', {data: texToAll(count), counter: 1, fromSys: "Tex"});
+            res.render('counts/main', {data: texToAll(count), counter: 1});
             break;
-    
+        case "den":
+            res.render('counts/main', {data: denToAll(count), counter: 1});
+            break;
+        
+        case "ne":
+            res.render('counts/main', {data: neToAll(count), counter: 1});
+            break;
+
+        case "new":
+            res.render('counts/main', {data: newToAll(count), counter: 1});
+            break;
+
+        case "nes":
+            res.render('counts/main', {data: nesToAll(count), counter: 1});
+            break;
+
+        case "nel":
+            res.render('counts/main', {data: nelToAll(count), counter: 1});
+            break;
+        
+        case "lbps":
+            res.render('counts/main', {data: lbpsToAll(count), counter: 1});
+            break;
+        case "nm":
+            res.render('counts/main', {data: nmToAll(count), counter: 1});
+            break;
+            
         default:
             res.render('counts/main', {data: false});
     }
