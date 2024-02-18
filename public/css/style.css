@@ -1,0 +1,44 @@
+body{
+    background-color: #fff;
+}
+main{
+    min-height: 30pc;
+}
+button{
+    min-width: 50px;
+}
+
+a:link, a:visited {
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+a:hover{
+    color: yellow;
+}
+
+.info{
+    background-color: lightblue;
+    border-left: solid blue 5px;
+    color: black;
+    padding: 10px;
+}
+.info-warning{
+    background-color: #f1f79e;
+    border-left: solid rgb(255, 238, 0) 5px;
+    margin-top: 50px;
+    color: red;
+    padding: 10px;
+}
+
+nav{
+    background-color: magenta;
+}
+nav:a{
+    color: black;
+}
+.footer-txt{
+    color: black;
+}
