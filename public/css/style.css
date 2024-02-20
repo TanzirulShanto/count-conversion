@@ -12,7 +12,6 @@ a:link, a:visited {
     color: white;
     padding: 5px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
   }
 a:hover{
@@ -21,7 +20,7 @@ a:hover{
 
 .info{
     background-color: lightblue;
-    border-left: solid blue 5px;
+    border-left: solid rgb(80, 80, 235) 5px;
     color: black;
     padding: 10px;
 }
