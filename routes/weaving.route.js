@@ -79,7 +79,8 @@ router.post('/sectional-warping-2', (req, res) => {
     const totalNumberOfPrebeams = numberOfPrebeamsPerDrum * totalSets;
     const lengthPerPrebeam = Number((lengthPerSet/numberOfPrebeamsPerDrum).toFixed(2));
 
-
+    const weightOfWarpInPounds = ((totalEnds*totalLength*1.0936)/(warpCount*840)).toFixed(2);
+    const weightOfWarpKG = (weightOfWarpInPounds*0.4536).toFixed(2);
 
     const obj = {
         input: {
@@ -111,7 +112,9 @@ router.post('/sectional-warping-2', (req, res) => {
             "Warp Length per Set": [lengthPerSet, " m"],
             "Drum Capacity Utilization": [drumCapacityUtilization, "%"],
             "Length per Prebeam": [lengthPerPrebeam, " m"],
-            "Total Number of Prebeams": [totalNumberOfPrebeams, ""]
+            "Total Number of Prebeams": [totalNumberOfPrebeams, ""],
+            "Weight Of Warp Yarn ": [weightOfWarpInPounds, " lbs"],
+            "Weight Of Warp Yarn": [weightOfWarpKG, " kg"],
         },
     }
     const csv_input = `Input Data\n
