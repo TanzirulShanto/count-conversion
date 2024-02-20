@@ -59,20 +59,25 @@ router.post('/sectional-warping-2', (req, res) => {
     const totalEndsInOneRepeat = epi * widthOfOneRepeat;
     const numberOfRepeatPerSection = Math.floor(creelCapacity/totalEndsInOneRepeat);
     const totalEndsPerSection = numberOfRepeatPerSection * totalEndsInOneRepeat;
+    
+    const totalNumberOfSection = Math.ceil(totalEnds/totalEndsPerSection)
 
     const creelCapacityUtilization = ((totalEndsPerSection/creelCapacity)*100).toFixed(2);
     
     const totalnumberOfSection = Math.ceil(totalEnds/(numberOfRepeatPerSection*totalEndsInOneRepeat));
 
-    const totalLength = Math.ceil(fabricLength + (fabricLength*wastePercentage)/100);
+
+
+    // const totalLength = Math.ceil(fabricLength + (fabricLength*wastePercentage)/100);
+    const totalLength = Number((fabricLength/(1-(wastePercentage/100))).toFixed(3));
     const totalSets = Math.ceil(totalLength/drumCapacity);
 
-    const lengthPerSet = totalLength/totalSets;
+    const lengthPerSet = Number((totalLength/totalSets).toFixed(3));
     const drumCapacityUtilization = ((lengthPerSet/drumCapacity)*100).toFixed(2);
 
     const numberOfPrebeamsPerDrum = Math.ceil(lengthPerSet/prebeamCapacity);
     const totalNumberOfPrebeams = numberOfPrebeamsPerDrum * totalSets;
-    const lengthPerPrebeam = lengthPerSet/numberOfPrebeamsPerDrum;
+    const lengthPerPrebeam = Number((lengthPerSet/numberOfPrebeamsPerDrum).toFixed(2));
 
 
 
@@ -86,23 +91,26 @@ router.post('/sectional-warping-2', (req, res) => {
             "Fabric Length": [fabricLength, " m"],
             "Drum Capacity": [drumCapacity, " m"],
             "Prebeam Capacity": [drumCapacity, " m"],
-            "Creel Capacity": [weftCount, ""],
+            "Creel Capacity": [creelCapacity, ""],
             "Waste Percentage": [wastePercentage, "%"]
         }
         ,
         outcome: {
             "Width of One Repeat" : [widthOfOneRepeat, " inches"],
-            "Total Ends" : [totalEnds, ""],
+            
             "Total Ends in One Repeat":[totalEndsInOneRepeat, ""],
+            "Total Ends" : [totalEnds, ""],
+            "Total Number of Section": [totalNumberOfSection, ""],
             "Number of Reapeat per Section": [numberOfRepeatPerSection, ""],
             "Total Ends per Section" : [totalEndsPerSection, ""],
             "Creel Capacity Utilization" : [creelCapacityUtilization, "%"],
+
             "Total Number of Sets": [totalnumberOfSection, ""],
             "Total Warp Length": [totalLength, " m"],
             "Total Number of Sets": [totalSets, ""],
-            "Warp Length per Set": [lengthPerSet, ""],
+            "Warp Length per Set": [lengthPerSet, " m"],
             "Drum Capacity Utilization": [drumCapacityUtilization, "%"],
-            "Number of Prebeams per Set": [lengthPerPrebeam, ""],
+            "Length per Prebeam": [lengthPerPrebeam, " m"],
             "Total Number of Prebeams": [totalNumberOfPrebeams, ""]
         },
     }

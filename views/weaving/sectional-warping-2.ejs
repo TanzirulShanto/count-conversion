@@ -6,7 +6,51 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+      body{
+          background-color: #f9f9f9;
+      }
+      main{
+          min-height: 30pc;
+      }
+      button{
+          min-width: 50px;
+      }
 
+      a:link, a:visited {
+          color: white;
+          padding: 5px;
+          text-align: center;
+          display: inline-block;
+        }
+      a:hover{
+          color: yellow;
+      }
+
+      .info{
+          background-color: lightblue;
+          border-left: solid rgb(80, 80, 235) 5px;
+          color: black;
+          padding: 10px;
+      }
+      .info-warning{
+          background-color: #f1f79e;
+          border-left: solid rgb(255, 238, 0) 5px;
+          margin-top: 50px;
+          color: red;
+          padding: 10px;
+      }
+
+      nav{
+          background-color: magenta;
+      }
+      nav:a{
+          color: black;
+      }
+      .footer-txt{
+          color: black;
+      }
+    </style>
     <title>Count Converter</title>
   </head>
   <body>
@@ -14,8 +58,13 @@
     <%- include ('../layout/header') %>
 
     <main>
-        <div class="container p-3">
+        <div class="container p-2">
             <h2 align="center">Calculation of Sectional Warping</h2>
+            <div class="container pt-2">
+              <p class="info">Enter all the value of fields in required unit given in the label of each field. <br>
+              For example, fabric width in inches, fabric length in meters etc. If your data is in different unit, then convert it to required unit first.
+              </p>
+            </div>
         </div>
 
         <div class="container p-3">
@@ -26,7 +75,7 @@
 
                     <div class="mb-3">
                         <label class="form-label" for=<%= stripe%>><%= stripe%> Width (inches)</label>
-                        <input type="number" class="form-control" step="0.01" name=<%= stripe%> >
+                        <input type="number" class="form-control" step="0.01" name=<%= stripe%> required>
                     </div>
                   <% } %>
                   <div class="d-none mb-3">
@@ -37,43 +86,43 @@
                 <div class="col-lg-6 p-5">
                     <div class="mb-3">
                       <label class="form-label" for="warpCount">Warp Count</label>
-                      <input class="form-control" type="number" step="0.01" id="warpCount" name="warpCount">
+                      <input class="form-control" type="number" step="0.01" id="warpCount" name="warpCount" required>
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="weftCount">Weft Count</label>
-                      <input class="form-control" type="number" step="0.01" id="weftCount" name="weftCount">
+                      <input class="form-control" type="number" step="0.01" id="weftCount" name="weftCount" required>
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="epi">EPI</label>
-                      <input class="form-control" type="number" step="0.01" id="epi" name="epi">
+                      <input class="form-control" type="number" step="0.01" id="epi" name="epi" required>
                     </div>
                   <div class="mb-3">
                     <label class="form-label" for="ppi">PPI</label>
-                    <input class="form-control" type="number" step="0.01" id="ppi" name="ppi">
+                    <input class="form-control" type="number" step="0.01" id="ppi" name="ppi" required>
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="fabricWidth">Fabric Width (inches)</label>
-                    <input class="form-control" type="number" step="0.01" id="fabricWidth" name="fabricWidth">
+                    <input class="form-control" type="number" step="0.01" id="fabricWidth" name="fabricWidth" required>
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="fabricLength">Fabric Length (m)</label>
-                    <input class="form-control" type="number" step="0.01" id="fabricLength" name="fabricLength">
+                    <input class="form-control" type="number" step="0.01" id="fabricLength" name="fabricLength" required>
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="drumCapacity">Drum Capacity (m)</label>
-                    <input class="form-control" type="number" step="0.01" id="drumCapacity" name="drumCapacity">
+                    <input class="form-control" type="number" step="0.01" id="drumCapacity" name="drumCapacity" required>
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="prebeamCapacity">Carpacity of Pre-beam (m)</label>
-                    <input class="form-control" type="number" step="0.01" id="prebeamCapacity" name="prebeamCapacity">
+                    <input class="form-control" type="number" step="0.01" id="prebeamCapacity" name="prebeamCapacity" required>
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="creelCapacity">Creel Capacity</label>
-                    <input class="form-control" type="number" step="0.01" id="creelCapacity" name="creelCapacity">
+                    <input class="form-control" type="number" step="0.01" id="creelCapacity" name="creelCapacity" required>
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="wastePercentage">Waste Percentage (%)</label>
-                    <input class="form-control" type="number" value="17" step="0.01" id="wastePercentage" name="wastePercentage">
+                    <input class="form-control" type="number" value="17" step="0.01" id="wastePercentage" name="wastePercentage" required>
                   </div>
                 </div>
               </div>

@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 
 
 
+
 app.use((req, res, next) => {
     res.render('err', {message:"Invalid Route", statusCode: 404});
 });
