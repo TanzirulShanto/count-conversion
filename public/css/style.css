@@ -1,5 +1,7 @@
 body{
     background-color: #f9f9f9;
+    
+    
 }
 main{
     min-height: 30pc;
@@ -19,9 +21,9 @@ a:hover{
 }
 
 .info{
-    background-color: lightblue;
+    background-color: rgb(138, 200, 221);
     border-left: solid rgb(80, 80, 235) 5px;
-    color: black;
+    color: rgb(53, 53, 117);
     padding: 10px;
 }
 .info-warning{
