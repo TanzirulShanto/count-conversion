@@ -16,7 +16,7 @@ function texToAll(tex) {
     const ne = 590.5/tex;
     const new_ = 885.82677/tex;
     const nes = 1937.746063/tex;
-    const lbps = tex/34.35;
+    const lbps = tex/34.4484;
     const nel = 1653.543307/tex;
     const nm = 1000/tex;
 
@@ -42,7 +42,7 @@ function denToAll(den) {
     const ne = 5314.5/den;
     const new_ = 7972.44093/den;
     const nes = 17439.71457/den;
-    const lbps = den/309.15;
+    const lbps = den/310.0356;
     const nel = 14881.88976/den;
     const nm = 9000/den;
 
@@ -69,7 +69,7 @@ function neToAll(ne) {
     const den = 5314.96063/ne;
     const new_ = 1.5*ne;
     const nes = 3.28125*ne;
-    const lbps = 17.142857/ne;
+    const lbps = 17.14285714/ne;
     const nel = 2.8*ne;
     const nm = ne/0.59;
 
@@ -95,7 +95,7 @@ function nmToAll(nm) {
     const ne = 0.59*nm;
     const new_ = nm/1.12888889;
     const nes = nm/0.5160634921;
-    const lbps = 29.02857143/nm;
+    const lbps = 29.02911519/nm;
     const nel = nm/0.6047619;
 
     const obj = {
@@ -168,10 +168,10 @@ function nesToAll(nes) {
 
 
 function lbpsToAll(lbps) {
-    const tex = 34.35*lbps;
-    const den = 309.15*lbps;
-    const ne = 17.142857/lbps;
-    const nm = 29.02857143/lbps;
+    const tex = 34.4484*lbps;
+    const den = 310.0356*lbps;
+    const ne = 17.14285714/lbps;
+    const nm = 29.02911519/lbps;
     const new_ = 25.71428571/lbps;
     const nes = 56.25/lbps;
     const nel = 48/lbps;
