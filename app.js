@@ -5,6 +5,7 @@ const cors = require('cors');
 const weavingRoute = require('./routes/weaving.route');
 const countRoute = require('./routes/count.route');
 const unitsRoute = require('./routes/unit-converter.route');
+const othersRoute = require('./routes/others.route');
 
 
 
@@ -18,6 +19,7 @@ app.use(express.static('public'));
 app.use('/weaving', weavingRoute);
 app.use(countRoute);
 app.use('/unit-converter', unitsRoute)
+app.use('/others', othersRoute);
 
 
 

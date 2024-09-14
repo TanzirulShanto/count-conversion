@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resistance - Color Band</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .heading {
+            background-color: #45a790;
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            padding: 17px;
+        }
+        .container {
+            width: 40%;
+            min-width: 350px;
+            margin: auto;
+            padding: 30px 0 0 0;
+        }
+        .container label {
+            width: 100%;
+            display: block;
+            font-size: 1.1rem;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 5px 0;
+        }
+        .container select {
+            width: 100%;
+            padding: 5px 20px;
+            border: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all .3s ease;
+        }
+        .container select:hover {
+            border: 2px solid rgb(24, 191, 241);
+        }
+        .container select:active {
+            border: 2px solid rgb(24, 191, 241);
+            margin: 3px 0;
+        }
+        #four, #five {
+            display: none;
+        }
+        .color-input {
+            margin: 10px 0 0 0;
+        }
+        #calculateButton {
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 7px 10px;
+            font-weight: bold;
+            margin: 12px 0px;
+        }
+        .output {
+            background-color: #ccc;
+            margin: 0 0 10px 0;
+            padding: 15px 10px;
+            font-size: 1.1rem;
+            font-family: Arial, Helvetica, sans-serif;
+            display: none;
+            text-align: center;
+        }
+        option {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="heading">
+            <h2>Calculation of Resistance</h2>
+        </div>
+        <div class="container">
+            <label for="numberOfBands">Select Number of Bands</label>
+            <select name="numberOfBands" id="numberOfBands">
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+
+            <div id="four" class="color-input" style="display: block;">
+                <label for="A">Color of First Band (A)</label>
+                <select name="colorOfAFour" id="colorOfAFour">
+                    <option value="0" style="background-color: black;color: white;">Black</option>
+                    <option value="1" style="background-color: brown;color: white;">Brown</option>
+                    <option value="2" style="background-color: red;color: white;">Red</option>
+                    <option value="3" style="background-color: orange;color: white;">Orange</option>
+                    <option value="4" style="background-color: yellow;color: maroon;">Yellow</option>
+                    <option value="5" style="background-color: green;color: white;">Green</option>
+                    <option value="6" style="background-color: blue;color: white;">Blue</option>
+                    <option value="7" style="background-color: violet;color: white;">Violet</option>
+                    <option value="8" style="background-color: grey;color: black;">Grey</option>
+                    <option value="9" style="background-color: white;color: black;">White</option>
+                </select>
+                <label for="B">Color of Second Band (B)</label>
+                <select name="colorOfBFour" id="colorOfBFour">
+                    <option value="0" style="background-color: black;color: white;">Black</option>
+                    <option value="1" style="background-color: brown;color: white;">Brown</option>
+                    <option value="2" style="background-color: red;color: white;">Red</option>
+                    <option value="3" style="background-color: orange;color: white;">Orange</option>
+                    <option value="4" style="background-color: yellow;color: maroon;">Yellow</option>
+                    <option value="5" style="background-color: green;color: white;">Green</option>
+                    <option value="6" style="background-color: blue;color: white;">Blue</option>
+                    <option value="7" style="background-color: violet;color: white;">Violet</option>
+                    <option value="8" style="background-color: grey;color: black;">Grey</option>
+                    <option value="9" style="background-color: white;color: black;">White</option>
+                </select>
+                <label for="C">Color of Third Band (C)</label>
+                <select name="colorOfCFour" id="colorOfCFour">
+                    <option value="0" style="background-color: black;color: white;">Black</option>
+                    <option value="1" style="background-color: brown;color: white;">Brown</option>
+                    <option value="2" style="background-color: red;color: white;">Red</option>
+                    <option value="3" style="background-color: orange;color: white;">Orange</option>
+                    <option value="4" style="background-color: yellow;color: maroon;">Yellow</option>
+                    <option value="5" style="background-color: green;color: white;">Green</option>
+                    <option value="6" style="background-color: blue;color: white;">Blue</option>
+                    <option value="7" style="background-color: violet;color: white;">Violet</option>
+                    <option value="8" style="background-color: grey;color: black;">Grey</option>
+                    <option value="9" style="background-color: white;color: black;">White</option>
+                </select>
+                <label for="D">Color of Forth Band (D)</label>
+                <select name="colorOfDFour" id="colorOfDFour">
+                    <option value="5" style="background-color: Gold;color: black;">Gold</option>
+                    <option value="10" style="background-color: silver;color: black;">Silver</option>
+                    <option value="20" style="background-color: white;color: black;">None</option>
+                </select>
+            </div>
+
+            <div id="five" class="color-input">
+                <label for="A">Color of First Band (A)</label>
+                <select name="colorOfAFive" id="colorOfAFive">
+                    <option value="0" style="background-color: black;color: white;">Black</option>
+                    <option value="1" style="background-color: brown;color: white;">Brown</option>
+                    <option value="2" style="background-color: red;color: white;">Red</option>
+                    <option value="3" style="background-color: orange;color: white;">Orange</option>
+                    <option value="4" style="background-color: yellow;color: maroon;">Yellow</option>
+                    <option value="5" style="background-color: green;color: white;">Green</option>
+                    <option value="6" style="background-color: blue;color: white;">Blue</option>
+                    <option value="7" style="background-color: violet;color: white;">Violet</option>
+                    <option value="8" style="background-color: grey;color: black;">Grey</option>
+                    <option value="9" style="background-color: white;color: black;">White</option>
+                </select>
+                <label for="B">Color of Second Band (B)</label>
+                <select name="colorOfBFive" id="colorOfBFive">
+                    <option value="0" style="background-color: black;color: white;">Black</option>
+                    <option value="1" style="background-color: brown;color: white;">Brown</option>
+                    <option value="2" style="background-color: red;color: white;">Red</option>
+                    <option value="3" style="background-color: orange;color: white;">Orange</option>
+                    <option value="4" style="background-color: yellow;color: maroon;">Yellow</option>
+                    <option value="5" style="background-color: green;color: white;">Green</option>
+                    <option value="6" style="background-color: blue;color: white;">Blue</option>
+                    <option value="7" style="background-color: violet;color: white;">Violet</option>
+                    <option value="8" style="background-color: grey;color: black;">Grey</option>
+                    <option value="9" style="background-color: white;color: black;">White</option>
+                </select>
+                <label for="C">Color of Third Band (C)</label>
+                <select name="colorOfCFive" id="colorOfCFive">
+                    <option value="0" style="background-color: black;color: white;">Black</option>
+                    <option value="1" style="background-color: brown;color: white;">Brown</option>
+                    <option value="2" style="background-color: red;color: white;">Red</option>
+                    <option value="3" style="background-color: orange;color: white;">Orange</option>
+                    <option value="4" style="background-color: yellow;color: maroon;">Yellow</option>
+                    <option value="5" style="background-color: green;color: white;">Green</option>
+                    <option value="6" style="background-color: blue;color: white;">Blue</option>
+                    <option value="7" style="background-color: violet;color: white;">Violet</option>
+                    <option value="8" style="background-color: grey;color: black;">Grey</option>
+                    <option value="9" style="background-color: white;color: black;">White</option>
+                </select>
+                <label for="D">Color of Fourth Band (D)</label>
+                <select name="colorOfDFive" id="colorOfDFive">
+                    <option value="0" style="background-color: black;color: white;">Black</option>
+                    <option value="1" style="background-color: brown;color: white;">Brown</option>
+                    <option value="2" style="background-color: red;color: white;">Red</option>
+                    <option value="3" style="background-color: orange;color: white;">Orange</option>
+                    <option value="4" style="background-color: yellow;color: maroon;">Yellow</option>
+                    <option value="5" style="background-color: green;color: white;">Green</option>
+                    <option value="6" style="background-color: blue;color: white;">Blue</option>
+                    <option value="7" style="background-color: violet;color: white;">Violet</option>
+                    <option value="8" style="background-color: grey;color: black;">Grey</option>
+                    <option value="9" style="background-color: white;color: black;">White</option>
+                </select>
+                <label for="E">Color of Fifth Band (E)</label>
+                <select name="colorOfEFive" id="colorOfEFive">
+                    <option value="5" style="background-color: Gold;color: black;">Gold</option>
+                    <option value="10" style="background-color: silver;color: black;">Silver</option>
+                    <option value="20" style="background-color: white;color: black;">None</option>
+                </select>
+            </div>
+            <input class="btn btn-secondary" type="button" name="calculateButton" id="calculateButton" value="Calculate Resistance">
+        </div>
+        <div class="container" style="margin: 5px auto;">
+            <div class="output" id="output">
+                <p id="out"></p>
+            </div>
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        const bandNumberDrop = document.getElementById('numberOfBands');
+
+        bandNumberDrop.oninput = () => {
+            document.getElementById('output').style.display = 'none';
+            let numberOfBands = bandNumberDrop.value;
+
+            if(numberOfBands==4) {
+                document.getElementById('four').style.display = 'block';
+                document.getElementById('five').style.display = 'none';
+            } else {
+                document.getElementById('four').style.display = 'none';
+                document.getElementById('five').style.display = 'block';
+            }
+        }
+
+        function getFormattedResistance(resistance, allowance) {
+            var temp = resistance;
+            let count = 0;
+            while (temp > 1000) {
+                temp = temp / 1000;
+                count += 3;
+            }
+
+            var k = "";
+            if (count === 3) {
+                k = 'K';
+            } else if (count === 6) {
+                k = 'M';
+            } else if (count === 9) {
+                k = 'G';
+            } else if (count === 12) {
+                k = 'T';
+            }
+            let text = `${temp} ± ${allowance}% ${k}Ω`;
+            return text;
+        }
+
+        const calculateButton = document.getElementById('calculateButton');
+        calculateButton.onclick = () => {
+            document.getElementById('output').style.display = 'block';
+            if (document.getElementById('numberOfBands').value == 4) {
+                let a = document.getElementById('colorOfAFour').value;
+                let b = document.getElementById('colorOfBFour').value;
+                let c = document.getElementById('colorOfCFour').value;
+                let d = document.getElementById('colorOfDFour').value;
+                
+                let main = Number(a+b);
+                let power = Number(c);
+                let resistance = main * Math.pow(10, power);
+
+                document.getElementById('out').innerHTML = 'Calculated Resistance: ' + getFormattedResistance(resistance, Number(d));
+            }
+            else {
+                let a = document.getElementById('colorOfAFive').value;
+                let b = document.getElementById('colorOfBFive').value;
+                let c = document.getElementById('colorOfCFive').value;
+                let d = document.getElementById('colorOfDFive').value;
+                let e = document.getElementById('colorOfEFive').value;
+                let main = Number(a+b+c);
+                let power = Number(d);
+                let resistance = main * Math.pow(10, power);
+
+                document.getElementById('out').innerHTML = 'Calculated Resistance: ' + getFormattedResistance(resistance, Number(e));
+                console.log(getFormattedResistance(resistance, Number(e)))
+            }
+        }
+
+        const drops = [
+        document.getElementById('colorOfAFive'),
+        document.getElementById('colorOfBFive'),
+        document.getElementById('colorOfCFive'),
+        document.getElementById('colorOfDFive'),
+        document.getElementById('colorOfEFive'),
+        document.getElementById('colorOfAFour'),
+        document.getElementById('colorOfBFour'),
+        document.getElementById('colorOfCFour'),
+        document.getElementById('colorOfDFour')
+        ]
+        drops.forEach(item => {
+            item.oninput = () => {
+                document.getElementById('output').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

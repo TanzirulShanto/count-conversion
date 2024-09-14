@@ -152,7 +152,7 @@ exports.postWeavingHighSpeedWarpingRoute = (req, res) => {
     const weightOfWarpInPounds = ((totalWarpLength*totalEnds*1.0936)/(840*warpCount)).toFixed(2);
     const weightOfWarpInKGs = (weightOfWarpInPounds*.4536).toFixed(2);
     
-    const totalPicks = 80*36*1.0936*fabricLength;
+    const totalPicks = ppi*36*1.0936*fabricLength;
     const totalWeftLength = fabricWidth*totalPicks; // in yds
 
     const weightOfWeftInPounds = (totalWeftLength/(weftCount*840)).toFixed(2);
