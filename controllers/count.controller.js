@@ -47,3 +47,9 @@ exports.postCountConvertRoute = (req, res)=>{
             res.render('counts/main', {data: false, isCountZero: false});
     }
 }
+
+
+exports.getCountCalculatorRequest = (req, res) => {
+    res.statusCode = 200;
+    res.render('counts/count-calculator');
+}
